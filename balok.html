@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalkulator Balok</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+  <style type="text/css">
+    * {
+      padding: 0;
+      margin: 0;
+      color: white;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    textarea {
+      border-radius: 10px;
+      margin-left: 20px;
+      margin-top: 30px;
+      color: black;
+      padding-left: 10px;
+      padding-top: 20px;
+      font-weight: bold;
+    }
+
+    .btnHitung {
+      background-color: white;
+      color: grey;
+      margin-top: 15px;
+      padding: 4px 16px;
+      border-radius: 4px;
+    }
+
+    .btnHitung:hover {
+      background-color: grey;
+      color: white;
+      padding: 4px 16px;
+      border-radius: 4px;
+    }
+
+    #container {
+      margin-left: 50px;
+      margin-top: 40px;
+    }
+
+    .dropbtn {
+      background-color: #ffffff00;
+      color: white;
+      padding-top: 0px;
+      padding: auto;
+      margin: auto;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      transition: all .2s ease;
+      height: 25px;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-size: 70%;
+      font-weight: bold;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #ffffff10;
+    }
+  </style>
+</head>
+
+<body class="bg-dark">
+  <div>
+    <header>
+      <nav class="navbar navbar-expand-sm navbar-dark bg-secondary">
+        <div class="container-fluid">
+          <div class="d-flex">
+            <h3 style="color: silver;margin-right: 10px;font-family: arial black;margin-top: 8px"><b>KALKULATOR</b></h3>
+            <div class="dropdown" style="float:right;">
+              <button class="dropbtn"><span class="material-symbols-outlined">density_small</span></button>
+              <div class="dropdown-content">
+                <a href="index.html">Beranda</a>
+                <a href="about.html">About</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <nav class="navbar navbar-expand-sm navbar-dark bg-secondary">
+        <div class="container-fluid">
+          <div class="d-flex">
+            <!-- <button class="btn btn-outline-dark" type="submit" style="margin-right: 15px;"><a href="index.html">BACK</a></button> -->
+            <button class="btn btn-outline-dark" type="submit" style="margin-right: 15px;"><a
+                href="kubus.html">KUBUS</a></button>
+            <button class="btn btn-outline-dark" type="submit" style="margin-right: 15px;"><a
+                href="balok.html">BALOK</a></button>
+            <button class="btn btn-outline-dark" type="submit" style="margin-right: 15px;"><a
+                href="kerucut.html">KERUCUT</a></button>
+            <!-- <button class="btn btn-outline-dark" type="submit" style="margin-right: 15px;"><a href="secant.html">SECANT</a></button> -->
+          </div>
+        </div>
+      </nav>
+    </header>
+      <div class="d-flex">
+      <div class="container">
+      <div class="col-md-3" id="container">
+         <div class="col-auto" style="margin-left: 30px;">
+          <label class="">Panjang</label>
+          <input type="number" class="form-control" id="panjangInput" placeholder="Masukkan Panjang">
+          <label class="">Lebar</label>
+          <input type="number" class="form-control" id="lebarInput" placeholder="Masukkan Lebar">
+          <label class="">Tinggi</label>
+          <input type="number" class="form-control" id="tinggiInput" placeholder="Masukkan Tinggi">
+          <button onclick="hitung()" class="btnHitung">Hitung</button>
+         </div>
+      </div>
+      </div>
+      </div>
+  <script>
+    //      function hitungVolumeBalok(panjang,lebar,tinggi) {
+    //        if (panjang <= 0) {
+    //          return "panjang harus lebih besar dari 0";
+    //        }
+    //        return (panjang * lebar * tinggi) + "cm³";
+    //      }
+
+    //      function hitungLuasPermukaanBalok(panjang,lebar,tinggi) {
+    //        if (panjang <= 0) {
+    //          return "panjang harus lebih besar dari 0";
+    //        }
+    //        return (2 * ((panjang * lebar)+(panjang*tinggi)+(lebar*tinggi))) + "cm²";
+    //      }
+
+    function diagonalRuangBalok(panjang, lebar, tinggi) {
+      if (panjang <= 0) {
+        return "panjang harus lebih besar dari 0";
+      }
+      return (Math.sqrt((panjang) * (panjang) + (lebar) * (lebar) + (tinggi) * (tinggi))) + "cm";
+    }
+
+    function hitung() {
+      const jenisBangun = "balok";
+      const panjang = parseFloat(document.getElementById("panjangInput").value);
+      const lebar = parseFloat(document.getElementById("lebarInput").value);
+      const tinggi = parseFloat(document.getElementById("tinggiInput").value);
+
+      if (isNaN(panjang) || isNaN(lebar) || isNaN(tinggi)) {
+        alert("Kolom input harus diisi dengan angka.");
+        return;
+      }
+
+      if (jenisBangun === "balok") {
+
+        const volumeBalok = panjang * lebar * tinggi;
+        const volumeBalokReferensi = panjang * lebar * tinggi;
+
+        const luasPermukaan = 2 * ((panjang * lebar) + (panjang * tinggi) + (lebar * tinggi));
+        const luasPermukaanReferensi = 2 * ((panjang * lebar) + (panjang * tinggi) + (lebar * tinggi));
+
+        const galatRelatifVolume = (Math.abs((volumeBalok - volumeBalokReferensi) / volumeBalokReferensi) * 100).toFixed(4);
+        const galatRelatifLuasPermukaan = (Math.abs((luasPermukaan - luasPermukaanReferensi) / luasPermukaanReferensi) * 100).toFixed(4);
+
+
+        //      coba-coba
+        var volume = panjang * lebar * tinggi;
+        var galat = Math.abs(volume - (panjang * lebar * tinggi))
+        var galatMutlak = Math.abs(volume - (panjang * lebar * tinggi))
+        var galatRelatif = Math.abs(galatMutlak / volume * 100)
+        var galatRelatifHampiran = Math.abs(galatMutlak / (panjang * lebar * tinggi)) * 100;
+
+
+
+
+        // const volume = hitungVolumeBalok(panjang, lebar, tinggi);
+        // const luasPermukaan = hitungLuasPermukaanBalok(panjang, lebar, tinggi);
+        const diagonalRuang = diagonalRuangBalok(panjang, lebar, tinggi);
+
+        const textarea = document.createElement("textarea");
+        textarea.setAttribute("rows", "15");
+        textarea.setAttribute("cols", "165");
+        textarea.setAttribute("readonly", "true");
+        textarea.textContent =
+          "RUMUS :\n \n" +
+          "Volume : Panjang × Lebar × Tinggi \n" +
+          "Luas Permukaan : 2 × ((P×L)+(P×T)+(L×T)) \n" +
+          "Diagonal Ruang : √(P²+L²+T²) \n \n " +
+          "JAWABAN :\n" +
+          "Diagonal Ruang Balok : √("+(panjang)+"² + "+(lebar)+"² + "+(tinggi)+"²) = " + diagonalRuang + "\n" +
+          "Volume Balok : "+(panjang)+" × "+(lebar)+" × "+(tinggi)+" = " + volumeBalok + "cm³ \n" +
+          "Luas Permukaan Balok : 2 × (("+(panjang)+" × "+(lebar)+")+("+(panjang)+" × "+(tinggi)+")+("+(lebar)+" × "+(tinggi)+")) = " + luasPermukaan + "cm² \n" +
+          "Galat Volume: " + galatRelatifVolume + "%" + "\n" +
+          "Galat Luas Permukaan: " + galatRelatifLuasPermukaan + "%" + "\n";
+
+        const hasilContainer = document.getElementById("hasilContainer");
+        hasilContainer.innerHTML = "";
+        hasilContainer.appendChild(textarea);
+      }
+    }
+
+  </script>
+  <div id="hasilContainer"></div>
+</body>
+
+</html>
